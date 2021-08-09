@@ -2027,7 +2027,7 @@ GZ3D.Gui.prototype.findModelThumbnail = function(instanceName)
       var path = modelList[i].models[j].modelPath;
       if(instanceName.indexOf(path) >= 0)
       {
-        return 'assets/'+path+'/thumbnails/0.png';
+        return '/assets/'+path+'/thumbnails/0.png';
       }
     }
   }
@@ -2051,8 +2051,10 @@ GZ3D.Gui.prototype.findModelThumbnail = function(instanceName)
  */
 GZ3D.Gui.prototype.updateStats = function()
 {
-  var tree = angular.element($('#treeMenu')).scope();
-  tree.updateStats();
+  if ( angular.element($('#treeMenu')).length ){
+    var tree = angular.element($('#treeMenu')).scope();
+    tree.updateStats();
+  }
 };
 
 GZ3D.Gui.prototype.updateModelStatsAsync = function()
