@@ -5,13 +5,28 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0">
     <link rel="icon" type="image/ico"  href="favicon.ico" />
-    <script src="js/include/stats.min.js"></script>
-    <script src="gz3d.gui.min.js" ></script>
-    <!--link rel="stylesheet" href="style/gz3d.css"/-->
+    <link rel="stylesheet" type="text/css" href="style/jquery-mobile/jquery.mobile-1.4.0.css"/>
+    <script src="js/include/stats.min.js" type="text/javascript"></script>
+    <script src="gz3d.gui.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="style/gz3d.css"/>
   </head>
 
   <body oncontextmenu="return false;">
+
     <div data-role="page" data-theme="b" data-content-theme="c">
+
+      <div id='manipulatorModeFieldset'>
+        <fieldset class="gzGUI" data-role="controlgroup" data-mini="true" data-type="horizontal" id="mode-header-fieldset">
+          <input type="radio" name="radio-mini" id="view-mode" value="choice-1" checked="checked" />
+          <label for="view-mode"><img style="height:1.8em" src="style/images/arrow.png" title="View Mode (ESC)"></label>
+
+          <input type="radio" name="radio-mini" id="translate-mode" value="choice-2"  />
+          <label for="translate-mode"><img style="height:1.8em" src="style/images/translate.png" title="Translation Mode (T)"></label>
+
+          <input type="radio" name="radio-mini" id="rotate-mode" value="choice-3"  />
+          <label for="rotate-mode"><img style="height:1.8em" src="style/images/rotate.png" title="Rotation Mode (R)"></label>
+        </fieldset>
+      </div>
 
 
       <!-- content -->
