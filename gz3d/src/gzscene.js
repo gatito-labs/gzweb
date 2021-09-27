@@ -1479,6 +1479,14 @@ GZ3D.Scene.prototype.loadMeshFromUri = function(uri, submesh, centerSubmesh,
   var uriPath = uri.substring(0, uri.lastIndexOf('/'));
   var uriFile = uri.substring(uri.lastIndexOf('/') + 1);
 
+  console.log("que waaa loadmesh");
+  console.log(uri);
+  if (uri.startsWith("vscode-webview") ){
+	  uri = uri.substr(14);
+	  console.log(uri);
+	  uri = 'http' + uri;
+  }
+
   if (this.meshes[uri])
   {
     var mesh = this.meshes[uri];
@@ -1884,6 +1892,15 @@ GZ3D.Scene.prototype.setMaterial = function(obj, material)
 
       if (material.texture)
       {
+        
+        console.log("que waaa");
+        console.log(material.texture);
+        var urlWithoutProtocol = material.texture;
+        if (material.texture.startsWith("vscode-webview") ){
+          urlWithoutProtocol = material.texture.substr(14)
+          console.log(urlWithoutProtocol);
+        }
+
         var texture = this.textureLoader.load(material.texture);
         if (material.scale)
         {
