@@ -15,16 +15,21 @@
 
     <div data-role="page" data-theme="b" data-content-theme="c">
 
+      <fieldset class="gzGUI" id="play-header-fieldset">
+        <a data-role="button" class="header-button" id="play"><span id="playText"><img src="style/images/play.png" title="Iniciar"></span></a>
+        <a data-role="button" class="header-button" id="reset-model"><span id="restartText"><img src="style/images/back.png" title="Reiniciar"></span></a>
+      </fieldset>
+
       <div id='manipulatorModeFieldset'>
         <fieldset class="gzGUI" data-role="controlgroup" data-mini="true" data-type="horizontal" id="mode-header-fieldset">
           <input type="radio" name="radio-mini" id="view-mode" value="choice-1" checked="checked" />
-          <label for="view-mode"><img style="height:1.8em" src="style/images/arrow.png" title="View Mode (ESC)"></label>
+          <label for="view-mode"><img style="height:1.8em" src="style/images/arrow.png" title="Modo vista (ESC)"></label>
 
           <input type="radio" name="radio-mini" id="translate-mode" value="choice-2"  />
-          <label for="translate-mode"><img style="height:1.8em" src="style/images/translate.png" title="Translation Mode (T)"></label>
+          <label for="translate-mode"><img style="height:1.8em" src="style/images/translate.png" title="Modo trasladar (T)"></label>
 
           <input type="radio" name="radio-mini" id="rotate-mode" value="choice-3"  />
-          <label for="rotate-mode"><img style="height:1.8em" src="style/images/rotate.png" title="Rotation Mode (R)"></label>
+          <label for="rotate-mode"><img style="height:1.8em" src="style/images/rotate.png" title="Modo rotar (R)"></label>
         </fieldset>
       </div>
 
