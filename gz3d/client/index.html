@@ -15,10 +15,6 @@
 
     <div data-role="page" data-theme="b" data-content-theme="c">
 
-      <fieldset class="gzGUI" id="play-header-fieldset">
-        <a data-role="button" class="header-button" id="play"><span id="playText"><img src="style/images/play.png" title="Iniciar"></span></a>
-        <a data-role="button" class="header-button" id="reset-model"><span id="restartText"><img src="style/images/back.png" title="Reiniciar"></span></a>
-      </fieldset>
 
       <div id='manipulatorModeFieldset'>
         <fieldset class="gzGUI" data-role="controlgroup" data-mini="true" data-type="horizontal" id="mode-header-fieldset">
@@ -30,6 +26,17 @@
 
           <input type="radio" name="radio-mini" id="rotate-mode" value="choice-3"  />
           <label for="rotate-mode"><img style="height:1.8em" src="style/images/rotate.png" title="Modo rotar (R)"></label>
+        </fieldset>
+
+      </div>
+
+      <div id='simpleShapesFieldset'>
+        <fieldset id="sphere-header-fieldset" class="gzGUI mouse-only">
+          <a data-role="button" class="header-button" id="reset-model"><span id="restartText"><img src="style/images/back.png" title="Reiniciar"></span></a>
+        </fieldset>
+
+        <fieldset id="cylinder-header-fieldset" class="gzGUI mouse-only">
+          <a data-role="button" class="header-button" id="play"><span id="playText"><img src="style/images/play.png" title="Iniciar"></span></a>
         </fieldset>
       </div>
 
