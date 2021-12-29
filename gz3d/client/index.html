@@ -14,8 +14,34 @@
   <body oncontextmenu="return false;">
 
     <div data-role="page" data-theme="b" data-content-theme="c">
+      <div id="leftPanel" class="gzGUI">
+        <!-- main menu -->
+        <div id="mainMenu" class="leftPanels ui-overlay-shadow">
+          <div class="clickable panelTitle closePanels">
+            <h3>Menu</h3>
+          </div>
+          <div class="panelContent">
+            <ul>
+              <div class="ui-field-contain">
+                <label for="select-native-1">Pista</label>
+                <select name="select-native-1" id="select-native-1">
+                  <option value="pista-mustakis-01">Clase 1</option>
+                  <option value="pista-mustakis-03">Clase 3</option>
+                  <option value="pista-mustakis-04">Clase 4</option>
+                  <option value="pista-mustakis-05">Clase 5</option>
+                  <option value="pista-mustakis-07">Clase 7</option>
+                  <option value="pista-mustakis-08">Clase 8</option>
+                </select>
+              </div>
+            </ul>
+          </div>
+        </div>
+      </div>
 
+      <!-- tabs -->
+      <a id="mainMenuTab" class="gzGUI tab clickable"><img src="style/images/bars.png" title="Menu"></a>
 
+      <!-- left panel -->
       <div id='manipulatorModeFieldset'>
         <fieldset class="gzGUI" data-role="controlgroup" data-mini="true" data-type="horizontal" id="mode-header-fieldset">
           <input type="radio" name="radio-mini" id="view-mode" value="choice-1" checked="checked" />
@@ -96,6 +122,65 @@
         scene.render();
         // stats.update();
       }
+
+      function createModelPista(tipo){
+        var translation = new THREE.Vector3();
+        var quaternion = new THREE.Quaternion();
+        var testEntityMsg =
+            {
+              name : 'test',
+              type : tipo,
+              createEntity : 1,
+              position :
+              {
+                x : translation.x,
+                y : translation.y,
+                z : 0.002
+              },
+              orientation :
+              {
+                w: quaternion.w,
+                x: quaternion.x,
+                y: quaternion.y,
+                z: quaternion.z
+              }
+            };
+        iface.factoryTopic.publish(testEntityMsg);
+
+      }
+
+      var deleteModelPista = function(iface,name){
+        return new Promise(function(resolve, reject){
+          iface.deleteTopic.publish(name);
+          resolve('ok');
+        })
+      }
+
+      function sleep(ms) {
+        return new Promise(resolve => setTimeout(resolve, ms));
+      }
+
+
+      $('#select-native-1').change(async function (){
+        //console.log("se lanzo la wea");
+        //console.log($(this).val());
+        //console.log(iface.scene.getByName('test'));
+        await sleep(550);
+ 
+        var tipo = $(this).val();
+        if(iface.scene.getByName('test')){
+          deleteModelPista(iface,'test');
+          await sleep(700);
+          createModelPista(tipo);
+          //console.log("deleted");
+        }
+        else {
+          createModelPista(tipo);
+          //console.log('create');
+        }
+
+      });
+
     </script>
 
   </body>
