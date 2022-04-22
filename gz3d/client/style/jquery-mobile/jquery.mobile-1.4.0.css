@@ -2470,7 +2470,7 @@ button.ui-btn-icon-notext,
 	.ui-field-contain,
 	.ui-mobile fieldset.ui-field-contain {
 		padding: 0;
-		margin: 1em 0;
+		margin: 1em 2em;
 		border-bottom-width: 0;
 	}
 	.ui-field-contain:before,

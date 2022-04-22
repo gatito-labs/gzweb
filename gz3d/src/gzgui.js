@@ -1471,7 +1471,7 @@ GZ3D.Gui = function(scene)
         {
           if (isWideScreen())
           {
-            $('.tab').css('left', '23em');
+            $('.tab').css('left', '10.5em');
           }
           else
           {
